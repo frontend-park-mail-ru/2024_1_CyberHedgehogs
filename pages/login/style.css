@@ -4,7 +4,7 @@
 }
 
 .container{
-    background-image: url(../assets/img/background01.png);
+    background-image: url(../../assets/img/background01.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
