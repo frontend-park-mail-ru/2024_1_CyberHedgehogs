@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saudade</title>
-    <link rel="stylesheet" href="../../styles/style.css">
+    <link rel="stylesheet" href="/style.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,34 +15,34 @@
         <div class="main-panel">
             <div class="main-panel__container">
                 <div class="main-panel__logo-container">
-                    <img src="../../assets/icons/main-logo.svg" alt="logo" class="logo__icon">
+                    <img src="/icons/main-logo.svg" alt="logo" class="logo__icon">
                     <span class="logo__title">Saudade</span>
                 </div>
                 <form action="" class="main-panel__logreg-form">
                     <div class="logreg-input__container">
                         <input type="text" class="logreg-input__input" placeholder="Логин" name="login">
-                        <img src="../../assets/icons/human.svg" alt="" class="logreg-input__icon">
+                        <img src="/icons/human.svg" alt="" class="logreg-input__icon">
                     </div>
                     <div class="logreg-input__container">
-                        <input type="text" class="logreg-input__input" placeholder="Email" name="Email">
+                        <input type="text" class="logreg-input__input" placeholder="Email" name="email">
                     </div>
                     <div class="logreg-input__container">
-                        <input type="password" class="logreg-input__input" placeholder="Пароль" name="password">
-                        <img src="../../assets/icons/closed-eye.svg" alt="" class="logreg-input__icon" >
+                        <input type="password" class="logreg-input__input" placeholder="Пароль" name="password1">
+                        <img src="/icons/closed-eye.svg" alt="" class="logreg-input__icon" >
                     </div>
                     <div class="logreg-input__container">
-                        <input type="password" class="logreg-input__input" placeholder="Подтвердите пароль" name="password">
-                        <img src="../../assets/icons/closed-eye.svg" alt="" class="logreg-input__icon" >
+                        <input type="password" class="logreg-input__input" placeholder="Подтвердите пароль" name="password2">
+                        <img src="/icons/closed-eye.svg" alt="" class="logreg-input__icon" >
                     </div>
                 </form>
                 <div class="main-panel__btns">
                     <button class="main-panel__btn-item">Зарегистрироваться</button>
-                    <button class="main-panel__btn-item main-panel__btn-item_darker">Перейти на странцу авторизации</button>
+                    <button class="main-panel__btn-item main-panel__btn-item_darker"><a href="/login">Есть аккаунт?</a></button>
                 </div>
             </div>
         </div>
     </main>
-    <script type="module" src="./index.js"></script>
-    <script type="module" src="../utils/validation.js"></script>
+    <script type="module" src="/registration.js"></script>
+    <script type="module" src="/validation.js"></script>
 </body>
 </html>
