@@ -11,11 +11,16 @@ loginBtn.addEventListener("click", (event) => {
     const password2 = regForm.elements.password2.value;
     const email = regForm.elements.email.value;
 
-    if (password1 !== password2){
-        alert("Passwords doesn't match!")
+    if (password1 !== password2) {
+        alert("Passwords doesn't match!");
+        return;
     }
 
-    if (validateLogin(login) && validateEmail(email) && validatePassword(password1)) {
+    if (
+        validateLogin(login) &&
+        validateEmail(email) &&
+        validatePassword(password1)
+    ) {
         alert("Request was send");
         // do some fetch magick here after
     }
