@@ -8,7 +8,7 @@ a {
 }
 
 .container{
-    background-image: url(/img/background01.png);
+    background-image: url(/assets/img/background01.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -123,6 +123,12 @@ a {
     background-color: #BA0C16;
     font-style: normal;
     font-size: 15px;
+    width: 100%;
+}
+
+.main-panel__btn-item:hover{
+    border: 1px solid #ac4f54;
+    background-color: #ac4f54;
 }
 
 .main-panel__btn-item_darker{
@@ -165,7 +171,7 @@ a {
 }
 
 .profile_photo {
-    background-image: url(/img/Eateinrpxy0.jpg);
+    background-image: url(/assets/img/Eateinrpxy0.jpg);
     background-size: cover;
     box-sizing: border-box;
     position: absolute;
@@ -324,4 +330,8 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.link{
+    cursor: pointer;
 }
