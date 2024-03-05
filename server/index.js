@@ -23,6 +23,10 @@ app.get('/registration', (request, response) => {
     response.sendFile(path.join(__dirname, '..') + '/pages/registration/index.html')
 })
 
+app.get('/profile', (request, response) => {
+    response.sendFile(path.join(__dirname, '..') + '/pages/profile/index.html')
+})
+
 app.listen(PORT, HOST, () => {
     console.log(`Frontend server runs on: http://${HOST}:${PORT}`);
 })
