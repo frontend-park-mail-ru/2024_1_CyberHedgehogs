@@ -12,7 +12,6 @@ app.get("/*", (request, response) => {
     response.send(makeFinalPage());
 });
 
-
 app.listen(PORT, HOST, () => {
     console.log(`Frontend server runs on: http://${HOST}:${PORT}`);
 });

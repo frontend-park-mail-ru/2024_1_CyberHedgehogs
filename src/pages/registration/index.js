@@ -20,9 +20,23 @@ loginBtn.addEventListener("click", (event) => {
             if (password1 !== password2) {
                 alert("Passwords doesn't match!");
             } else {
-                const passErr = validate("password", password);
+                const passErr = validate("password", password1);
                 if (!passErr) {
                     alert("Request was send");
+                    fetch("http://127.0.0.1:8050", {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json;charset=utf-8",
+                        },
+                        body: JSON.stringify({
+                            login: login,
+                            password: password1,
+                            email: email,
+                        }),
+                    })
+                        .then((res) => res.text())
+                        .then((res) => alert(res))
+                        .catch((err) => console.log(err));
                 } else {
                     alert(passErr);
                 }
