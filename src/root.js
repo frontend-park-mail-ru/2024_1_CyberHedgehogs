@@ -30,4 +30,17 @@ document.addEventListener("click", (event) => {
     window.history.pushState({}, "", newPath);
 });
 
-console.log(state);
+setInterval(() => {
+    const cookieDict = {};
+    const cookies = document.cookie
+        .split(";")
+        .map((cookie) => cookie.trim().split("="));
+    for (const pair of cookies) {
+        cookieDict[pair[0]] = pair[1];
+    }
+    if (cookieDict["session_id"]) {
+        console.log("ok");
+    }
+}, 10000);
+
+// console.log(state);

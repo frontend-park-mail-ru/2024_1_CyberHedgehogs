@@ -13,6 +13,30 @@ loginBtn.addEventListener("click", (event) => {
 
     const loginErr = validate("login", login);
 
+    // stayed for fast testing cookie thing
+    // alert("Request was send");
+    // fetch("http://localhost:3031", {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json;charset=utf-8",
+    //     },
+    //     body: JSON.stringify({
+    //         login: login,
+    //         password: password1,
+    //         username: login,
+    //         email: email,
+    //     }),
+    //     credentials: 'include'
+    // })
+    //     .then((res) => res.json())
+    //     .then(response => console.log(response))
+    //     .catch((err) => {
+    //         console.log(err);
+    //         alert(
+    //             "Sign up was failed! Pleasee try again later!"
+    //         );
+    //     });
+
     if (!loginErr) {
         const emailErr = validate("email", email);
 
@@ -23,7 +47,7 @@ loginBtn.addEventListener("click", (event) => {
                 const passErr = validate("password", password1);
                 if (!passErr) {
                     alert("Request was send");
-                    fetch("http://127.0.0.1:8081", {
+                    fetch("http://localhost:3031", {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json;charset=utf-8",
@@ -34,11 +58,10 @@ loginBtn.addEventListener("click", (event) => {
                             username: login,
                             email: email,
                         }),
+                        credentials: "include",
                     })
-                        .then((res) => {
-                            console.log(res.getSetCookies());
-                            document.cookie = "session_id=123";
-                        })
+                        .then((res) => res.json())
+                        .then((response) => console.log(response))
                         .catch((err) => {
                             console.log(err);
                             alert(
