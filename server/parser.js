@@ -53,17 +53,3 @@ export function makeFinalPage() {
         return "Error while parsing main page!";
     }
 }
-
-// const a =
-//     fs
-//         .readFileSync(process.cwd() + "/public/index.html", "utf8")
-//         .slice(0, 763 + 10) +
-//     parsePages() +
-//     fs
-//         .readFileSync(process.cwd() + "/public/index.html", "utf8")
-//         .slice(763 + 11);
-// console.log(
-//     fs
-//         .readFileSync(process.cwd() + "/public/index.html", "utf8")
-//         .indexOf('id="root">')
-// );

@@ -13,7 +13,6 @@ function render(path) {
 }
 
 for (const child of root.children) {
-    // console.log(child.querySelector('script'))
     if (child.id === "home") {
         state["/"] = child;
     }
