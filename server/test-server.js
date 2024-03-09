@@ -1,20 +1,26 @@
 import http from "http";
-import crypto from 'crypto';
+import crypto from "crypto";
 
 let server = http.createServer((request, response) => {
-    if (request.url === '/'){
+    if (
+        request.url === "/" ||
+        request.url === "/register" ||
+        request.url == "/login"
+    ) {
         const cookieHeaders = request.headers.cookie;
         if (cookieHeaders) {
-            const cookies = cookieHeaders.split(';').map(cookie => cookie.trim().split('='));
+            const cookies = cookieHeaders
+                .split(";")
+                .map((cookie) => cookie.trim().split("="));
             const cookieDict = {};
-            for (const pair of cookies){
+            for (const pair of cookies) {
                 cookieDict[pair[0]] = pair[1];
             }
             // console.log(cookieDict)
         } else {
-            console.log('message 1');
+            console.log("message 1");
         }
-    
+
         response.writeHead(200, {
             "Content-Type": "application/json",
             "Set-Cookie": `session_id=${crypto.randomUUID()}; max-age=60`,
@@ -23,10 +29,12 @@ let server = http.createServer((request, response) => {
             "Access-Control-Allow-Headers": "Content-Type",
             "Access-Control-Allow-Credentials": true,
         });
-    
+
         response.end(JSON.stringify({ data: "Hello there" }));
     } else {
-        response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
+        response.writeHead(404, {
+            "Content-Type": "text/plain; charset=utf-8",
+        });
         response.end("Page not found");
     }
 });

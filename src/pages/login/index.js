@@ -1,7 +1,10 @@
 import { validate } from "/utils/validation.js";
+import { NetAPI } from "/net.js";
 
 const loginForm = document.querySelector("#login-form");
 const loginBtn = document.querySelector(".main-panel__btn-item_login");
+
+const loginRequest = new NetAPI("/login", "POST");
 
 loginForm.addEventListener("submit", (event) => event.preventDefault());
 
@@ -15,7 +18,18 @@ loginBtn.addEventListener("click", (event) => {
         const passErr = validate("password", password);
 
         if (!passErr) {
-            alert("Request was send");
+            // alert("Request was send");
+            loginRequest
+                .send(
+                    JSON.stringify({
+                        login,
+                        password,
+                    })
+                )
+                .then((res) => console.log(res))
+                .catch(() => {
+                    alert("Logging in  was failed! Please try again later!");
+                });
         } else {
             alert(passErr);
         }
