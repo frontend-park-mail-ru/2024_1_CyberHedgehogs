@@ -31,7 +31,11 @@ let server = http.createServer((request, response) => {
             "Access-Control-Allow-Credentials": true,
         });
 
-        response.end(JSON.stringify({ data: "Hello there" }));
+        if (request.method === 'GET'){
+            response.end(JSON.stringify({ data: "Get succes!" }));
+        } else {
+            response.end(JSON.stringify({ data: "Hello there" }));
+        }
     } else {
         response.writeHead(404, {
             "Content-Type": "text/plain; charset=utf-8",

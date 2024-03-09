@@ -1,4 +1,8 @@
 import { NetAPI } from "/net.js";
+import { state } from "/root.js";
+import { usePageRender } from "/hooks.js";
+
+const pageId = "/profile";
 
 const profileRequest = new NetAPI("/profile", "GET");
 
@@ -7,7 +11,7 @@ linkArr.forEach((link) => {
     link.addEventListener("click", (event) => event.preventDefault());
 });
 
-setTimeout(() => {
+usePageRender(state[pageId], () => {
     profileRequest
         .send()
         .then((res) => {
@@ -17,4 +21,4 @@ setTimeout(() => {
             console.log(err);
             alert("Profile info loading was failed! Please try again later!");
         });
-}, 2000);
+});

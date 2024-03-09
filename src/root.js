@@ -3,21 +3,43 @@ const loginRequirePages = new Set(["home", "profile"]);
 const redirect = "/login";
 
 const root = document.querySelector("#root");
-const state = {};
+export const state = {};
 
 export function render(path) {
-    Array.from(root.children).forEach(
-        (child) => (child.style.display = "none")
-    );
+    Object.values(state).forEach((page) => {
+        page.element.style.display = "none";
+        page.isRendered = false;
+    })
 
     if (!state[path]) {
         root.textContent = "This page does not exist!";
     } else if (state[path].loginRequire && !checkCookieLogin()) {
         state[redirect].element.style.display = "";
+        state[redirect].isRendered = true;
         window.history.pushState({}, "", redirect);
     } else {
         state[path].element.style.display = "";
+        state[path].isRendered = true;
         window.history.pushState({}, "", path);
+    }
+    console.log(state);
+}
+
+function stateInit() {
+    for (const child of root.children) {
+        const page = {
+            element: child,
+            id: child.id,
+            loginRequire: false,
+            isRendered: false,
+        };
+        if (loginRequirePages.has(child.id)) {
+            page.loginRequire = true;
+        }
+        if (child.id === "home") {
+            state["/"] = page;
+        }
+        state["/" + child.id] = page;
     }
 }
 
@@ -32,21 +54,7 @@ function checkCookieLogin() {
     return SIGN_IN_COOKIE_NAME in cookieDict;
 }
 
-for (const child of root.children) {
-    const page = {
-        element: child,
-        id: child.id,
-        loginRequire: false,
-    };
-    if (loginRequirePages.has(child.id)) {
-        page.loginRequire = true;
-    }
-    if (child.id === "home") {
-        state["/"] = page;
-    }
-    state["/" + child.id] = page;
-}
-
+stateInit();
 render(window.location.pathname);
 console.log(checkCookieLogin());
 
