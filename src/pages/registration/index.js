@@ -17,25 +17,6 @@ loginBtn.addEventListener("click", (event) => {
 
     const loginErr = validate("login", login);
 
-    // stayed for fast testing cookie thing
-    // regRequest
-    //     .send(
-    //         JSON.stringify({
-    //             login: login,
-    //             password: password1,
-    //             username: login,
-    //             email: email,
-    //         })
-    //     )
-    //     .then((res) => {
-    //         console.log(res);
-    //         render("/");
-    //     })
-    //     .catch((err) => {
-    //         console.log(err)
-    //         alert("Sign up was failed! Please try again later!");
-    //     });
-
     if (!loginErr) {
         const emailErr = validate("email", email);
 
