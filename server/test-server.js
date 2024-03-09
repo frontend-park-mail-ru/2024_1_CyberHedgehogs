@@ -5,7 +5,8 @@ let server = http.createServer((request, response) => {
     if (
         request.url === "/" ||
         request.url === "/register" ||
-        request.url == "/login"
+        request.url === "/login" ||
+        request.url === "/profile"
     ) {
         const cookieHeaders = request.headers.cookie;
         if (cookieHeaders) {
