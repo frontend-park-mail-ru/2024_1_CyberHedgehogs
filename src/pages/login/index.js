@@ -1,5 +1,6 @@
 import { validate } from "/utils/validation.js";
 import { NetAPI } from "/net.js";
+import { render } from "/root.js";
 
 const loginForm = document.querySelector("#login-form");
 const loginBtn = document.querySelector(".main-panel__btn-item_login");
@@ -26,8 +27,12 @@ loginBtn.addEventListener("click", (event) => {
                         password,
                     })
                 )
-                .then((res) => console.log(res))
-                .catch(() => {
+                .then((res) => {
+                    console.log(res);
+                    render("/");
+                })
+                .catch((err) => {
+                    console.log(err)
                     alert("Logging in  was failed! Please try again later!");
                 });
         } else {

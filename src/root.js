@@ -5,7 +5,7 @@ const redirect = "/login";
 const root = document.querySelector("#root");
 const state = {};
 
-function render(path) {
+export function render(path) {
     Array.from(root.children).forEach(
         (child) => (child.style.display = "none")
     );
@@ -71,4 +71,4 @@ setInterval(() => {
     }
 }, 10000);
 
-console.log(state);
+// console.log(state);

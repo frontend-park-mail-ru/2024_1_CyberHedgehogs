@@ -22,7 +22,7 @@ export class NetAPI {
                 const json = await response.json();
                 return json;
             } catch (err) {
-                console.log(err);
+                console.log('Net error: ' + err);
                 throw err;
             }
         }
