@@ -8,7 +8,16 @@ export class NetAPI {
 
     async send(body) {
         if (this.method === "GET") {
-            alert("aaa");
+            try {
+                const response = await fetch(url + this.path, {
+                    credentials: "include",
+                });
+                const json = await response.json();
+                return json;
+            } catch (err) {
+                console.log('Net error: ' + err);
+                throw err;
+            }
         } else if (this.method === "POST") {
             try {
                 const response = await fetch(url + this.path, {
