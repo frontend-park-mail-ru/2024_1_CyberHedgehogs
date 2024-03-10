@@ -17,8 +17,8 @@
         <div class="link" data-to="/home">
             <a href="/" class="header_links">Личный кабинет</a>
         </div>
-        <div class="link" data-to="/login">
-            <a href="/" class="header_links">Вход/Выход</a>
+        <div class="link" data-to="/login" id="login-link">
+            <a href="/" class="header_links">Выход</a>
         </div>
     </header>
     <div class="profile_background"></div>
@@ -61,40 +61,6 @@
     </div>
     <div class="profile_posts" id = "container"></div>
 
-    <script id="entry-template" type="text/x-handlebars-template">
-        {{#each posts}}
-            <div class="profile_posts__container">
-                <img src="/assets/img/aa.jpg" class="profile_post" alt="Post" />
-                <div class="profile_info-robo-middle">
-                    Автор поста: {{Author}}
-                </div>
-            </div>
-        {{/each}}
-    </script>
-
-
 
 </main>
 <script type="module" src="/pages/profile/index.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-<script>
-    let jsonData = {
-      "posts": [
-        {
-          "Author": "Post 1"
-        },
-        {
-          "Author": "Post 2"
-        }
-      ]
-    };
-
-    let source = document.getElementById("entry-template").innerHTML;
-    let template = Handlebars.compile(source);
-    let html = template(jsonData);
-    
-    let container = document.getElementById("container");
-    container.innerHTML = html;
-</script>
-

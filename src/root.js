@@ -27,6 +27,9 @@ export function render(path) {
 
 function stateInit() {
     for (const child of root.children) {
+        if (child.classList.contains('components')){
+            continue;
+        }
         const page = {
             element: child,
             id: child.id,
@@ -43,7 +46,7 @@ function stateInit() {
     }
 }
 
-function checkCookieLogin() {
+export function checkCookieLogin() {
     const cookieDict = {};
     const cookies = document.cookie
         .split(";")

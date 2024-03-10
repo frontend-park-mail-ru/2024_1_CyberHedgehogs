@@ -31,8 +31,31 @@ let server = http.createServer((request, response) => {
             "Access-Control-Allow-Credentials": true,
         });
 
-        if (request.method === 'GET'){
-            response.end(JSON.stringify({ data: "Get succes!" }));
+        if (request.method === "GET") {
+            response.end(
+                JSON.stringify({
+                    result: {
+                        '1': {
+                            id: 1,
+                            title: 'some title 1',
+                            desription: 'lorem  ipsun',
+                            author: 'Tyler Derden'
+                        },
+                        '2': {
+                            id: 2,
+                            title: 'some title 2',
+                            desription: 'lorem  ipsun',
+                            author: 'Tyler Derden'
+                        },
+                        '3': {
+                            id: 3,
+                            title: 'some title 3',
+                            desription: 'lorem  ipsun',
+                            author: 'Tyler Derden'
+                        }
+                    }
+                })
+            );
         } else {
             response.end(JSON.stringify({ data: "Hello there" }));
         }

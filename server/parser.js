@@ -5,6 +5,8 @@ const searchSubstring = 'id="root">';
 const rootPath = process.cwd() + "/public/index.html";
 const pagesPath = process.cwd() + "/src/pages/";
 
+const componentsPath = process.cwd() + "/src/components/";
+
 function makeFileList(path) {
     let res = [];
     try {
@@ -21,8 +23,8 @@ function makeFileList(path) {
     return res;
 }
 
-function parsePages() {
-    const filesPathes = makeFileList(pagesPath);
+function parseFiles(path) {
+    const filesPathes = makeFileList(path);
     const htmlData = [];
 
     filesPathes.forEach((fObj) => {
@@ -44,10 +46,12 @@ export function makeFinalPage() {
         const mainPage = fs.readFileSync(rootPath, "utf8");
         const startIdx =
             mainPage.indexOf(searchSubstring) + searchSubstring.length;
-        const pages = parsePages();
+        const pages = parseFiles(pagesPath);
+
+        const components = parseFiles(componentsPath);
 
         return (
-            mainPage.slice(0, startIdx) + pages + mainPage.slice(startIdx)
+            mainPage.slice(0, startIdx) + pages + `<div class="components">${components}</div>` + mainPage.slice(startIdx)
         );
     } catch (error) {
         return "Error while parsing main page!";
