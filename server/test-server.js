@@ -24,7 +24,7 @@ let server = http.createServer((request, response) => {
 
         response.writeHead(200, {
             "Content-Type": "application/json",
-            "Set-Cookie": `session_id=${crypto.randomUUID()}; max-age=60`,
+            "Set-Cookie": `session_id=${crypto.randomUUID()}; max-age=3600`,
             "Access-Control-Allow-Origin": "http://localhost:3030",
             "Access-Control-Allow-Methods": "GET,POST",
             "Access-Control-Allow-Headers": "Content-Type",
