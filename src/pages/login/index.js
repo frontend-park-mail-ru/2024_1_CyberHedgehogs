@@ -5,6 +5,18 @@ import { render } from "/root.js";
 const loginForm = document.querySelector("#login-form");
 const loginBtn = document.querySelector(".main-panel__btn-item_login");
 
+const lLoginInput = document.getElementById("login-login");
+const lLoginErrMsg = lLoginInput.querySelector(".logreg__msg-err");
+const lPassInput = document.getElementById("login-pass");
+const lPassErrMsg = lPassInput.querySelector(".logreg__msg-err");
+
+lLoginInput.addEventListener("input", () => {
+    lLoginErrMsg.textContent = "";
+});
+lPassInput.addEventListener("input", () => {
+    lPassErrMsg.textContent = "";
+});
+
 const loginRequest = new NetAPI("/login", "POST");
 
 loginForm.addEventListener("submit", (event) => event.preventDefault());
@@ -36,9 +48,9 @@ loginBtn.addEventListener("click", (event) => {
                     alert("Logging in  was failed! Please try again later!");
                 });
         } else {
-            alert(passErr);
+            lPassErrMsg.textContent = passErr;
         }
     } else {
-        alert(loginErr);
+        lLoginErrMsg.textContent = loginErr;
     }
 });

@@ -332,3 +332,8 @@ a {
 .link {
     cursor: pointer;
 }
+
+.logreg__msg-err{
+    color: #d00;
+    margin-top: 15px;
+}
