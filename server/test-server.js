@@ -6,7 +6,8 @@ let server = http.createServer((request, response) => {
         request.url === "/" ||
         request.url === "/register" ||
         request.url === "/login" ||
-        request.url === "/profile"
+        request.url === "/profile" ||
+        request.url === 'posts'
     ) {
         const cookieHeaders = request.headers.cookie;
         if (cookieHeaders) {

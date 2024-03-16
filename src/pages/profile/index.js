@@ -5,7 +5,7 @@ import { renderPosts } from "/components/post/index.js";
 
 const pageId = "/profile";
 
-const profileRequest = new NetAPI("/profile", "GET");
+const profileRequest = new NetAPI("/posts", "GET");
 
 const linkArr = document.querySelectorAll(".header_links");
 linkArr.forEach((link) => {
