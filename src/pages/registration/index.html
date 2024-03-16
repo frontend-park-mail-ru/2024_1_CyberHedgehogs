@@ -1,0 +1,92 @@
+<main class="container">
+    <div class="main-panel">
+        <div class="main-panel__container">
+            <div class="main-panel__logo-container">
+                <img
+                    src="/assets/icons/main-logo.svg"
+                    alt="logo"
+                    class="logo__icon"
+                />
+                <span class="logo__title">Saudade</span>
+            </div>
+            <form action="" class="main-panel__logreg-form" id="register-form">
+                <div class="logreg__container" id="reg-login">
+                    <div class="logreg-input__container">
+                        <input
+                            type="text"
+                            class="logreg-input__input"
+                            placeholder="Логин"
+                            name="login"
+                        />
+                        <img
+                            src="/assets/icons/human.svg"
+                            alt=""
+                            class="logreg-input__icon"
+                        />
+                    </div>
+                    <div class="logreg__msg-err"></div>
+                </div>
+                <div class="logreg__container" id="reg-email">
+                    <div class="logreg-input__container">
+                        <input
+                            type="text"
+                            class="logreg-input__input"
+                            placeholder="Email"
+                            name="email"
+                        />
+                        <img
+                            src="/assets/icons/human.svg"
+                            alt=""
+                            class="logreg-input__icon"
+                        />
+                    </div>
+                    <div class="logreg__msg-err"></div>
+                </div>
+                <div class="logreg__container" id="reg-pass1">
+                    <div class="logreg-input__container">
+                        <input
+                            type="password"
+                            class="logreg-input__input"
+                            placeholder="Пароль"
+                            name="password1"
+                        />
+                        <img
+                            src="/assets/icons/human.svg"
+                            alt=""
+                            class="logreg-input__icon"
+                        />
+                    </div>
+                    <div class="logreg__msg-err"></div>
+                </div>
+
+                <div class="logreg__container" id="reg-pass2">
+                    <div class="logreg-input__container">
+                        <input
+                            type="password"
+                            class="logreg-input__input"
+                            placeholder="Подтвердите пароль"
+                            name="password2"
+                        />
+                        <img
+                            src="/assets/icons/human.svg"
+                            alt=""
+                            class="logreg-input__icon"
+                        />
+                    </div>
+                    <div class="logreg__msg-err"></div>
+                </div>
+            </form>
+            <div class="main-panel__btns">
+                <button class="main-panel__btn-item main-panel__btn-item_register">Зарегистрироваться</button>
+                <div class="link" data-to="/login">
+                    <button
+                        class="main-panel__btn-item main-panel__btn-item_darker"
+                    >
+                    Есть аккаунт?
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script type="module" src="/pages/registration/index.js"></script>
